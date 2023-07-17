@@ -14,3 +14,19 @@ wsrep_cluster_address="gcomm://192.168.88.31,192.168.88.32,192.168.88.33"
 wsrep_sst_method=rsync
 wsrep_node_address="192.168.88.31"
 wsrep_node_name="mariadb-cluster-01"
+
+# =========================================
+# because we set the binding in Galera, then we need to disable the bind-address on default location
+# sudo sed -i 's/bind-address/#bind-address/g' /etc/mysql/mariadb.conf.d/50-server.cnf
+
+# =========================================
+# start the cluster from this server
+# sudo galera_new_cluster
+
+# =========================================
+# Check the mariadb status
+# sudo systemctl status mariadb
+
+# =========================================
+# get the cluster size
+# sudo mysql  -e "SHOW STATUS LIKE 'wsrep_cluster_size'"
